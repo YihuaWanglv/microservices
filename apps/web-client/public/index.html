@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>web-client</title>
+</head>
+<body>
+    <div class="starter-template">
+        <div class="container">
+            <h1>这里是web-client</h1>
+            <br>
+            <br>
+            <br>
+            <p class="lead">
+              web前端项目，将会向api网关请求资源.
+            </p>
+            <div id="console"></div>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script>
+        
+        $(function(){
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:9000/hello',
+                headers: {
+                    'Service-Name': 'HelloService'
+                },
+                success: function(data) {
+                    $('#console').text(data);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
